@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Untuk Kamu ❤️</title>
+  <meta name="description" content="Website ucapan manis untuk pacar – responsif, elegan, dan menggemaskan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fff7fb;       /* pink very light */
+      --card:#ffffff;
+      --text:#2a2a2a;
+      --muted:#777;
+      --primary:#ff6fa8;  /* cotton candy */
+      --accent:#7c5cff;   /* lilac */
+      --ring: rgba(255,111,168,.35);
+      --shadow: 0 10px 30px rgba(124,92,255,.15);
+      --radius: 22px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background: radial-gradient(1200px 800px at 20% 10%, #ffe8f2, transparent),
+                              radial-gradient(900px 600px at 80% 20%, #efe8ff, transparent),
+                              var(--bg);
+      color:var(--text); font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      overflow-x:hidden;
+    }
+    .container{max-width:1100px;margin:0 auto;padding:20px 18px 120px}
+    header{
+      position:sticky; top:0; z-index:10; backdrop-filter: saturate(160%) blur(8px);
+      background:linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.45));
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+    .brand .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 210deg, var(--primary), var(--accent));color:#fff;box-shadow:0 8px 20px rgba(255,111,168,.35)}
+    .nav .controls{display:flex;align-items:center;gap:10px}
+    .btn{appearance:none;border:none;border-radius:999px;padding:10px 16px;font-weight:600;cursor:pointer;transition:.2s transform, .2s box-shadow; box-shadow:0 6px 16px rgba(0,0,0,.08); background:var(--card)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn-primary{background:linear-gradient(90deg, var(--primary), var(--accent)); color:#fff; box-shadow:0 10px 22px var(--ring)}
+    .pill{font-size:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid rgba(0,0,0,.06)}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;align-items:center;margin-top:24px}
+    @media (max-width:900px){.hero{grid-template-columns:1fr;}}
+
+    .card{background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .hero .card{padding:24px}
+    .title{font-family:Pacifico, cursive; font-size:42px; line-height:1.15; margin:6px 0 12px; color:#222}
+    .subtitle{color:var(--muted);margin:0 0 16px}
+
+    .typewriter{min-height:52px; font-size:20px; font-weight:600}
+
+    .stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+    .chip{background:#fff;border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:10px 12px; font-size:13px}
+
+    .photo-card{position:relative;overflow:hidden}
+    .photo-card .polaroid{aspect-ratio:4/5; background:linear-gradient(180deg, #fdfbff, #fff); border-radius:18px; display:grid; place-items:center; border:1px solid rgba(0,0,0,.06); padding:14px}
+    .polaroid-inner{width:100%; height:100%; background-size:cover; background-position:center; border-radius:12px; box-shadow:inset 0 0 0 2px rgba(255,255,255,.65)}
+    .tag{position:absolute; bottom:12px; right:12px; background:rgba(255,255,255,.85); padding:8px 12px; border-radius:999px; font-size:12px; box-shadow:0 6px 16px rgba(0,0,0,.08)}
+
+    .section{margin-top:26px}
+    .section h2{font-size:22px;margin:0 0 12px}
+
+    .gallery{display:grid; grid-template-columns:repeat(6, 1fr); gap:10px}
+    @media (max-width:1100px){.gallery{grid-template-columns:repeat(4,1fr)}}
+    @media (max-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    .gitem{position:relative; overflow:hidden; border-radius:16px; border:1px solid rgba(0,0,0,.06); background:#fff}
+    .gitem::after{content:""; display:block; padding-top:100%}
+    .gimg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition: transform .3s ease}
+    .gitem:hover .gimg{transform:scale(1.04)}
+    .gitem .label{position:absolute; bottom:8px; left:8px; font-size:12px; background:rgba(255,255,255,.85); padding:6px 8px; border-radius:999px}
+
+    .uploader{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    input[type=file]{display:none}
+    .filebtn{border:2px dashed rgba(0,0,0,.1); background:#fff; border-radius:16px; padding:10px 14px; cursor:pointer}
+
+    .timeline{display:grid; gap:10px}
+    .trow{display:grid; grid-template-columns:120px 1fr; gap:12px; align-items:start; padding:12px; border-radius:14px; background:#fff; border:1px solid rgba(0,0,0,.06)}
+    .trow .t{font-weight:700; color:#555}
+    .trow .d{color:#444}
+    @media (max-width:600px){.trow{grid-template-columns:1fr}} 
+
+    .footer{margin-top:30px; text-align:center; color:#666}
+
+    /* Floating hearts */
+    .hearts{position:fixed; inset:0; pointer-events:none; overflow:hidden}
+    .heart{position:absolute; font-size:14px; opacity:.8; animation: rise 6s linear forwards}
+    @keyframes rise { from { transform: translateY(40px) scale(.9); opacity:.0 } to { transform: translateY(-110vh) scale(1.2); opacity:0 } }
+
+    /* Modal */
+    .modal{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.5); z-index:20}
+    .modal.show{display:grid}
+    .modal .content{max-width:min(92vw,1000px); max-height:82vh; border-radius:16px; overflow:hidden; background:#000}
+    .modal img{display:block; width:100%; height:auto}
+
+    /* Cute switches */
+    .switch{display:inline-flex; align-items:center; gap:10px; padding:6px 10px; border-radius:999px; background:#fff; border:1px solid rgba(0,0,0,.06)}
+    .switch input{display:none}
+    .toggle{width:46px; height:26px; border-radius:999px; background:linear-gradient(90deg,#eee,#f7f7f7); position:relative; box-shadow: inset 0 2px 6px rgba(0,0,0,.08)}
+    .dot{position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:linear-gradient(180deg,#fff,#f2f2f2); box-shadow:0 2px 6px rgba(0,0,0,.15); transition:.2s left, .2s background}
+    .switch input:checked + .toggle .dot{left:23px; background:linear-gradient(180deg, #fff, #fee);}
+
+    /* Confetti */
+    .confetti{position:fixed; inset:0; pointer-events:none; overflow:hidden}
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true" id="hearts"></div>
+  <div class="confetti" id="confetti"></div>
+
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">💖</div>
+        <div>Untuk <span id="recipient">Kamu</span></div>
+      </div>
+      <div class="controls">
+        <label class="switch" title="Putar/Mute Musik">
+          <input type="checkbox" id="toggleMusic"/>
+          <div class="toggle"><div class="dot"></div></div>
+          <small>Musik</small>
+        </label>
+        <button class="btn btn-primary" id="sayangBtn">Aku Sayang Kamu!</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <div class="pill">✨ Ucapan Spesial</div>
+        <h1 class="title">Hai, <span id="namePretty">Sayang</span> 💞</h1>
+        <p class="subtitle">Ini halaman kecil sebagai bukti betapa berharganya kamu. Simpan dan buka kapan pun kamu rindu 💌</p>
+        <div class="typewriter" id="typewriter"></div>
+
+        <div class="stats">
+          <div class="chip">📅 Sejak: <strong id="since">26 August 2025</strong></div>
+          <div class="chip">⏳ Hari bersama: <strong id="daysTogether">0</strong></div>
+          <div class="chip">💬 Pesan favorit: <strong>"kabar kamu penting buatku"</strong></div>
+        </div>
+      </div>
+      <div class="card photo-card">
+        <div class="polaroid">
+          <div class="polaroid-inner" id="coverPhoto" style="background-image:url('foto1.jpg');"></div>
+        </div>
+        <div class="tag">Ini Aku dan Nanas💗</div>
+      </div>
+    </section>
+
+    <section class="section card" style="padding:18px">
+      <h2>Galeri Kenangan</h2>
+      <p class="subtitle">Ini beberapa foto kenangan kita</p>
+      <div class="gallery" id="gallery">
+        <!-- Placeholder images (bebas diganti URL lokal) -->
+        <div class="gitem"><img class="gimg" src="foto2.jpg" alt="Kenangan 1"><div class="label">🎈</div></div>
+        <div class="gitem"><img class="gimg" src="foto3.jpg" alt="Kenangan 2"><div class="label">🌸</div></div>
+        <div class="gitem"><img class="gimg" src="foto4.jpg" alt="Kenangan 3"><div class="label">🌙</div></div>
+        <div class="gitem"><img class="gimg" src="foto5.jpg" alt="Kenangan 4"><div class="label">🍰</div></div>
+        <div class="gitem"><img class="gimg" src="foto6.jpg" alt="Kenangan 5"><div class="label">💐</div></div>
+        <div class="gitem"><img class="gimg" src="foto7.jpg" alt="Kenangan 6"><div class="label">☀️</div></div>
+        <div class="gitem"><img class="gimg" src="foto8.jpg" alt="Kenangan 6"><div class="label">💗</div></div>
+        <div class="gitem"><img class="gimg" src="foto9.jpg" alt="Kenangan 6"><div class="label">💘</div></div>
+      </div>
+      <div class="uploader" style="margin-top:12px">
+        <label class="filebtn">
+          <input id="fileInput" type="file" accept="image/*" multiple>
+          ➕ Unggah fotomu di sini
+        </label>
+        <button class="btn" id="clearUploads">Hapus unggahan</button>
+      </div>
+    </section>
+
+    <section class="section card" style="padding:18px">
+      <h2>Timeline Kita</h2>
+      <div class="timeline" id="timeline">
+        <div class="trow"><div class="t">🎬 26 Agustus 2025</div><div class="d">Tertawa kecil, cerita panjang, Pulang dengan senyum. Hari itu aku sangat bahagia saat dirimu menerima cintaku</div></div>
+        <div class="trow"><div class="t">🎂 30 April 2005</div><div class="d">Doa ku untukmu: sehat, bahagia, dan selalu merasa dicintai.</div></div>
+      </div>
+    </section>
+
+    <section class="footer">
+      Bahkan jika reinkarnasi itu benar-benar ada, dan kita bisa hidup sekali lagi di kehidupan yang lain nanti, kupastikan akan tetap memilihmu, entah nanti akan berakhir sama atau tidak, tapi setidaknya jika aku gagal mendapatkanmu di kehidupan ini, tolong biarkan aku mengusahakan kamu satu kali lagi di kehidupan kita yang berikutnya  — <span style="opacity:.8">Dibuat dengan sepenuh hati 💗</span>
+    </section>
+  </main>
+
+  <!-- Modal viewer -->
+  <div class="modal" id="modal">
+    <div class="content"><img id="modalImg" alt="preview"/></div>
+  </div>
+
+  <script>
+  // =============================
+  // 1) Typewriter Message
+  // =============================
+  const message = [
+    "Terima kasih sudah hadir dalam hariku.",
+    "Kamu adalah rumah tempat aku pulang.",
+    "Semoga kita saling menjaga, sekarang dan nanti."
+  ];
+  const typeEl = document.getElementById('typewriter');
+  let idxMsg = 0, idxChar = 0;
+  function typeLoop(){
+    const curr = message[idxMsg];
+    typeEl.textContent = curr.slice(0, idxChar++);
+    if(idxChar <= curr.length){ setTimeout(typeLoop, 38); }
+    else { setTimeout(()=>{ idxMsg = (idxMsg+1)%message.length; idxChar = 0; typeLoop(); }, 1600); }
+  }
+  typeLoop();
+
+  // =============================
+  // 2) Days Together Counter (edit tanggal sesuai hubungan kalian)
+  // =============================
+  const since = new Date('2025-08-26T00:00:00');
+  document.getElementById('since').textContent = since.toLocaleDateString('id-ID', { day:'2-digit', month:'short', year:'numeric'});
+  function updateDays(){
+    const now = new Date();
+    const diff = Math.floor((now - since) / (1000*60*60*24));
+    document.getElementById('daysTogether').textContent = diff.toString();
+  }
+  updateDays(); setInterval(updateDays, 60_000);
+
+  // =============================
+  // 3) Floating Hearts
+  // =============================
+  const hearts = document.getElementById('hearts');
+  function spawnHeart(x){
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.style.left = (x ?? Math.random()*100) + 'vw';
+    h.style.bottom = '-10vh';
+    h.style.animationDuration = (4 + Math.random()*3) + 's';
+    h.textContent = ['💖','💗','💘','💝','💞'][Math.floor(Math.random()*5)];
+    hearts.appendChild(h);
+    setTimeout(()=> h.remove(), 7000);
+  }
+  setInterval(()=>spawnHeart(), 900);
+
+  // =============================
+  // 4) Modal Gallery + Uploads
+  // =============================
+  const gallery = document.getElementById('gallery');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modalImg');
+  gallery.addEventListener('click', e=>{
+    const img = e.target.closest('.gimg');
+    if(!img) return;
+    modalImg.src = img.src;
+    modal.classList.add('show');
+  });
+  modal.addEventListener('click', ()=> modal.classList.remove('show'));
+
+  const fileInput = document.getElementById('fileInput');
+  const clearUploads = document.getElementById('clearUploads');
+  let uploaded = [];
+  fileInput.addEventListener('change', async (e)=>{
+    const files = [...e.target.files].slice(0, 18);
+    for(const f of files){
+      const url = URL.createObjectURL(f);
+      uploaded.push(url);
+      const item = document.createElement('div');
+      item.className = 'gitem';
+      item.innerHTML = `<img class="gimg" src="${url}" alt="unggahan"/><div class="label">💞</div>`;
+      gallery.prepend(item);
+    }
+    fileInput.value = '';
+  });
+  clearUploads.addEventListener('click', ()=>{
+    const imgs = [...gallery.querySelectorAll('img')];
+    imgs.filter(img=> uploaded.includes(img.src)).forEach(img=> img.parentElement.remove());
+    uploaded = [];
+  });
+
+  // =============================
+  // 5) WebAudio Cute Song (tanpa file mp3)
+  // =============================
+  let ctx, master, isPlaying = false;
+  const toggleMusic = document.getElementById('toggleMusic');
+  toggleMusic.addEventListener('change', ()=>{
+    if(toggleMusic.checked) startSong(); else stopSong();
+  });
+
+  function startSong(){
+    if(isPlaying) return;
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = 0.18; master.connect(ctx.destination);
+    const tempo = 85; // bpm
+    const beat = 60/tempo;
+
+    const melody = [
+      60,62,64,65,67,69,67,65,
+      64,62,60,null,
+      60,62,64,65,67,69,71,72,
+      71,69,67,null
+    ];
+    const bass =  [48,48,55,55,53,53,50,50];
+
+    const start = ctx.currentTime + .1;
+    // Melody synth
+    melody.forEach((m, i)=>{
+      const t = start + i*beat*0.5;
+      if(m==null) return;
+      synthNote(m, t, beat*0.45, .8);
+    });
+    // Bass
+    bass.forEach((b,i)=>{
+      const t = start + i*beat;
+      synthNote(b, t, beat*.95, .4, 'sine');
+    });
+    // Simple pad chords
+    const chords = [[60,64,67],[62,65,69],[55,60,64],[57,60,65]];
+    chords.forEach((ch,i)=>{
+      const t = start + i*beat*2;
+      ch.forEach(n=> synthNote(n-12, t, beat*2, .08, 'sine'));
+    });
+
+    // Loop by rescheduling
+    let loopId;
+    const loop = ()=>{
+      if(!isPlaying) return; 
+      const base = ctx.currentTime + .05;
+      melody.forEach((m, i)=>{ if(m==null) return; synthNote(m, base + i*beat*0.5, beat*0.45, .8); });
+      bass.forEach((b,i)=> synthNote(b, base + i*beat, beat*.95, .4, 'sine'));
+      chords.forEach((ch,i)=> ch.forEach(n=> synthNote(n-12, base + i*beat*2, beat*2, .08, 'sine')));
+      loopId = setTimeout(loop, (beat*8)*1000);
+    };
+    isPlaying = true; loop();
+  }
+
+  function stopSong(){
+    isPlaying = false;
+    if(master){ master.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.3); }
+    setTimeout(()=>{ try{ ctx && ctx.close(); }catch{} }, 350);
+  }
+
+  function synthNote(midi, when, dur, vol, type='triangle'){
+    const freq = 440 * Math.pow(2, (midi-69)/12);
+    const o = ctx.createOscillator(); o.type = type;
+    const g = ctx.createGain(); g.gain.value = 0;
+    o.connect(g); g.connect(master);
+    const a = 0.02, d=0.08, s=0.6, r=0.15;
+    const peak = vol; const sustain = vol * s;
+    g.gain.setValueAtTime(0, when);
+    g.gain.linearRampToValueAtTime(peak, when + a);
+    g.gain.linearRampToValueAtTime(sustain, when + a + d);
+    g.gain.linearRampToValueAtTime(0.0001, when + dur + r);
+    o.frequency.setValueAtTime(freq, when);
+    o.start(when); o.stop(when + dur + r + .02);
+  }
+
+  // =============================
+  // 6) Confetti + Heart button
+  // =============================
+  const sayangBtn = document.getElementById('sayangBtn');
+  sayangBtn.addEventListener('click', (e)=>{
+    for(let i=0;i<24;i++) spawnHeart();
+    confettiBurst(e.clientX, e.clientY);
+  });
+
+  function confettiBurst(x,y){
+    const c = document.getElementById('confetti');
+    const rect = c.getBoundingClientRect();
+    for(let i=0;i<36;i++){
+      const p = document.createElement('div');
+      p.style.position='absolute';
+      p.style.left = (x || rect.width/2) + 'px';
+      p.style.top  = (y || rect.height/2) + 'px';
+      p.style.width = p.style.height = Math.random()>.5 ? '8px':'10px';
+      p.style.borderRadius = '3px';
+      p.style.background = `hsl(${Math.random()*360},90%,70%)`;
+      const dx = (Math.random()-0.5)*300; const dy = (Math.random()-0.8)*300;
+      p.style.transition='transform 900ms cubic-bezier(.12,.6,.22,1), opacity 900ms linear';
+      c.appendChild(p);
+      requestAnimationFrame(()=>{
+        p.style.transform = `translate(${dx}px, ${dy}px) rotate(${Math.random()*360}deg)`;
+        p.style.opacity = 0;
+      });
+      setTimeout(()=>p.remove(), 950);
+    }
+  }
+
+  // =============================
+  // 7) Easy Customization (opsional)
+  // =============================
+  // Ganti nama penerima: isi prompt jika ada hash di URL seperti #Untuk:Nadia
+  const h = decodeURIComponent(location.hash.replace('#',''));
+  if(h.startsWith('Untuk:')){
+    const nama = h.split(':')[1].trim();
+    if(nama){ document.getElementById('recipient').textContent = nama; document.getElementById('namePretty').textContent = nama; }
+  }
+
+  // Cover photo click to replace via file picker
+  document.getElementById('coverPhoto').addEventListener('click', async ()=>{
+    const input = document.createElement('input'); input.type='file'; input.accept='image/*';
+    input.onchange = ()=>{
+      const f = input.files[0]; if(!f) return; const url = URL.createObjectURL(f);
+      document.getElementById('coverPhoto').style.backgroundImage = `url('${url}')`;
+    };
+    input.click();
+  });
+  </script>
+</body>
+</html>
